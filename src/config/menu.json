@@ -1,0 +1,14 @@
+[
+	{
+		"name": "home",
+		"title": "Dashboard",
+		"icon": "home",
+		"color": "#FF83EA"
+	},
+	{
+		"name": "settings",
+		"title": "Settings",
+		"icon": "cogs",
+		"color": "#F5AC3F"
+	}
+]

@@ -1,0 +1,30 @@
+{
+  "name": "boilerplate",
+  "version": "0.1.0",
+  "authors": [
+    "ibrahimyu <ibrahim7usuf@gmail.com>"
+  ],
+  "description": "Application Boilerplate",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "accounting": "~0.3.2",
+    "AdminLTE": "admin-lte#~2.3.0",
+    "angular": "~1.4.7",
+    "font-awesome": "fontawesome#~4.4.0",
+    "bootstrap": "~3.3.5",
+    "Ionicons": "ionicons#~2.0.1",
+    "moment": "~2.10.6",
+    "angular-ui-router": "~0.2.15"
+  }
+}

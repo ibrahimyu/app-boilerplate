@@ -14,5 +14,4 @@
 2. ````bower install````
 3. If you don't have Gulp, install it. ````npm install -g gulp````.
 4. ````npm install````
-5. Run from a server, or ````php -S localhost:3000```` if you have PHP installed.
-6. Access from the browser.
+5. Run ````gulp```` and a browser will be opened.

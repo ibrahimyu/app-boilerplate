@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var cat = require('gulp-concat');
 var server = require('gulp-server-livereload');
+var inject = require('gulp-inject');
 
 var paths = {
 	scripts: ['src/js/*.js'],
@@ -19,6 +20,14 @@ gulp.task('concat-styles', function() {
 		.pipe(gulp.dest('build'));
 });
 
+gulp.task('index', function() {
+	var target = gulp.src('./index.html');
+	var sources = gulp.src(['src/**/*.js', 'src/**/*.css'], {read: false});
+
+	return target.pipe(inject(sources))
+		.pipe(gulp.dest('.'));
+});
+
 gulp.task('watch', function() {
 	gulp.watch(paths.scripts, ['concat-scripts']);
 	gulp.watch(paths.styles, ['concat-styles']);
@@ -31,7 +40,7 @@ gulp.task('webserver', function() {
 		.pipe(server({
 			livereload: true,
 		    directoryListing: false,
-			open: true,
+			open: false,
 			enable: true,
 			filter: function(filePath, cb) {
 				cb( !(/node_module|src/.test(filePath)) )
@@ -39,4 +48,4 @@ gulp.task('webserver', function() {
 		}));
 });
 
-gulp.task('default', ['watch', 'concat', 'webserver']);
+gulp.task('default', ['watch', 'index', 'webserver']);

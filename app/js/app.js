@@ -4,13 +4,13 @@ angular.module('boilerplate', ['ui.router'])
 	$stateProvider
 		.state('home', {
 			url: '/',
-			templateUrl: 'src/views/home.html',
+			templateUrl: 'app/views/home.html',
 			controller: 'DashboardCtrl'
 		})
 
 		.state('settings', {
 			url: '/settings',
-			templateUrl: 'src/views/settings.html',
+			templateUrl: 'app/views/settings.html',
 			controller: 'SettingsCtrl'
 		});
 
@@ -20,22 +20,22 @@ angular.module('boilerplate', ['ui.router'])
 .controller('AppCtrl', function($scope, $http) {
 	$scope.app = new Object;
 
-	$http.get('/src/config/app.json').success(function(data) {
+	$http.get('/app/config/app.json').success(function(data) {
 		$scope.app = data;
 	});
 
-	$http.get('/src/config/menu.json').success(function(data) {
+	$http.get('/app/config/menu.json').success(function(data) {
 		$scope.app.menu = data;
 	});
 
-	$http.get('/src/data/user.json').success(function(data) {
+	$http.get('/app/data/user.json').success(function(data) {
 		$scope.app.user = data;
 
-		$http.get('/src/data/messages.json').success(function(data) {
+		$http.get('/app/data/messages.json').success(function(data) {
 			$scope.app.user.messages = data;
 		});
 
-		$http.get('/src/data/notifications.json').success(function(data) {
+		$http.get('/app/data/notifications.json').success(function(data) {
 			$scope.app.user.notifications = data;
 		})
 	});

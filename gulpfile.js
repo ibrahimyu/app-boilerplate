@@ -4,14 +4,14 @@ var server = require('gulp-server-livereload');
 var inject = require('gulp-inject');
 
 var paths = {
-	scripts: ['src/js/*.js'],
-	styles: ['src/css/*.css']
+	scripts: ['app/js/*.js'],
+	styles: ['app/css/*.css']
 };
 
 var indexPage = gulp.src('./index.html');
 
 gulp.task('index-debug', function() {
-	var sources = gulp.src(['src/js/*.js', 'src/css/*.css'], { read: false });
+	var sources = gulp.src(['app/js/*.js', 'app/css/*.css'], { read: false });
 
 	return indexPage.pipe(inject(sources))
 		.pipe(gulp.dest('.'));
@@ -27,10 +27,10 @@ gulp.task('webserver', function() {
 		.pipe(server({
 			livereload: true,
 		    directoryListing: false,
-			open: false,
+			open: true,
 			enable: true,
 			filter: function(filePath, cb) {
-				cb( !(/node_module|src/.test(filePath)) )
+				cb( !(/node_modules|app/.test(filePath)) )
 			}
 		}));
 });
